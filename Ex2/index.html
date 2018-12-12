@@ -1,0 +1,43 @@
+<!-- 
+Ce formulaire se trouve sur toutes les pages du site.
+Les utilisateurs qui soumettent une fois, ne devraient pas le revoir sur les pages suivantes.
+Proposer une nouvelle version du code JS/JQuery & HTML ci-dessous utilisant une fonctionnalité basique des navigateurs.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body onload="load()">
+
+  <div id="subscribe">
+    <input type="text" name="email" placeholder="Email" id="input_email" />
+    <input type="button" value="save" onclick="save()" />
+    <span id="close">Fermer</span>
+  </div>
+
+  <script>
+
+    function save() {
+      const fieldValue = document.getElementById('input_email').value;
+      localStorage.setItem('email', fieldValue);
+    }
+
+    function load() {
+      const storedValue = localStorage.getItem('email')
+      if (storedValue) {
+        document.getElementById('subscribe').style.display = "none"
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
